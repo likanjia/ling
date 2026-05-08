@@ -1,0 +1,52 @@
+server:
+  port: 18082
+
+spring:
+  application:
+    name: ling-oauth
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: ks3k72WH
+  security:
+    oauth2:
+      authorizationserver:
+        client:
+          wx-client:
+            registration:
+              client-id: admin
+              client-secret: "{noop}admin"
+              authorization-grant-types:
+                - password
+                - refresh_token
+              client-authentication-methods:
+                - client_secret_basic
+              scopes:
+                - server
+                - app
+            token:
+              access-token-time-to-live: 2h
+              reuse-refresh-tokens: false
+            require-authorization-consent: false
+
+          server:
+            registration:
+              client-id: server
+              client-secret: "{noop}server"
+              authorization-grant-types:
+                - password
+                - refresh_token
+              client-authentication-methods:
+                - client_secret_basic
+              scopes:
+                - server
+                - app
+              redirect-uris:
+                - http://localhost:18082/login
+            token:
+              access-token-time-to-live: 2h
+              reuse-refresh-tokens: false
+            require-authorization-consent: false
+

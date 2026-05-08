@@ -1,0 +1,3 @@
+com.ling.framework.security.service.CustomRedisOAuth2AuthorizationService
+com.ling.framework.security.config.ResourceServerAutoConfiguration
+com.ling.framework.security.config.ResourceServerConfiguration
