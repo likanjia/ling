@@ -1,6 +1,7 @@
 package com.ling.oauth.config;
 
 
+import com.ling.framework.security.handler.ResourceAuthExceptionEntryPoint;
 import com.ling.framework.security.util.RSAUtils;
 import com.ling.oauth.support.generator.CustomOAuth2RefreshTokenGenerator;
 import com.ling.oauth.support.generator.CustomOAuth2TokenCustomizer;
@@ -74,11 +75,12 @@ public class AuthorizationServerConfiguration {
             // 配置授权服务器设置
             authorizationServer.authorizationServerSettings(AuthorizationServerSettings.builder().issuer("http://localhost:18082").build());
 
-
-
         });
 
         http.authorizeHttpRequests(authorize -> authorize.anyRequest().authenticated());
+
+        // 配置异常处理
+        http.exceptionHandling(exception -> exception.authenticationEntryPoint(new ResourceAuthExceptionEntryPoint()));
 
         return http.build();
     }
