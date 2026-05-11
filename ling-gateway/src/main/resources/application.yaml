@@ -1,0 +1,50 @@
+server:
+  port: 19000
+
+spring:
+  application:
+    name: ling-gateway
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: ks3k72WH
+
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: localhost:8848
+
+
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: ling-oauth
+              uri: lb://ling-oauth
+              predicates:
+                - Path=/oauth2/**
+              filters:
+                - name: RequestRateLimiter
+                  args:
+                    key-resolver: '#{@remoteAddrKeyResolver}'
+                    # 允许的每秒请求数
+                    redis-rate-limiter.replenishRate: 10
+                    # 一秒钟内被允许的最大请求数
+                    redis-rate-limiter.burstCapacity: 200
+
+            - id: ling-admin
+              uri: lb://ling-admin
+              predicates:
+                - Path=/admin/**
+              filters:
+                - name: RequestRateLimiter
+                  args:
+                    key-resolver: '#{@remoteAddrKeyResolver}'
+                    # 允许的每秒请求数
+                    redis-rate-limiter.replenishRate: 100
+                    # 一秒钟内被允许的最大请求数
+                    redis-rate-limiter.burstCapacity: 200

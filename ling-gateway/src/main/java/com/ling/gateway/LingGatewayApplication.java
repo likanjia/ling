@@ -1,4 +1,4 @@
-package com.ling.oauth;
+package com.ling.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-public class LingOauthApplication {
+public class LingGatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LingOauthApplication.class, args);
+        SpringApplication.run(LingGatewayApplication.class, args);
     }
 
 }

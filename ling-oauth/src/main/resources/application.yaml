@@ -10,6 +10,14 @@ spring:
       host: localhost
       port: 6379
       password: ks3k72WH
+
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: localhost:8848
+
   security:
     oauth2:
       authorizationserver:
