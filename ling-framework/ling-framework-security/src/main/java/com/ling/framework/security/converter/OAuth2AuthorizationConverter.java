@@ -197,7 +197,7 @@ public class OAuth2AuthorizationConverter {
             mutableClaims.put("nbf",toDate(claims.get("nbf")));
             mutableClaims.put("exp",toDate(claims.get("exp")));
         } else {
-            ;
+
             mutableClaims.put("iat",convert(Instant.class,claims.get("iat")));
             mutableClaims.put("nbf",convert(Instant.class,claims.get("nbf")));
             mutableClaims.put("exp",convert(Instant.class,claims.get("exp")));
