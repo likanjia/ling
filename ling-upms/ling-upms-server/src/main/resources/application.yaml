@@ -1,0 +1,28 @@
+server:
+  port: 18002
+
+
+spring:
+  application:
+    name: ling-upms-server
+
+
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: localhost:8848
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: ks3k72WH
+
+ling:
+  security:
+    oauth2:
+      enabled: true
+      client-enable: false
+      ignore-url:
+        - /sys/user/**
