@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ling</groupId>
-    <artifactId>ling-upms-api</artifactId>
+    <artifactId>ling-upms-infra</artifactId>
     <version>0.0.1</version>
-    <name>ling-upms-api</name>
-    <description>ling-upms-api</description>
+    <name>ling-upms-infra</name>
+    <description>ling-upms-infra</description>
 
     <properties>
         <java.version>17</java.version>
