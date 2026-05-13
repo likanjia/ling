@@ -24,6 +24,13 @@ public class CustomAuthenticationConverter implements Converter<Jwt, AbstractAut
 
     private final OAuth2AuthorizationService authorizationService;
 
+    /**
+     * 将 JWT 令牌转换为认证令牌，合并 JWT 中的权限与原始授权中的权限
+     *
+     * @param jwt 待转换的 JWT 令牌
+     * @return 包含合并后权限信息的认证令牌
+     * @throws InvalidBearerTokenException 当根据 JWT 令牌值未找到对应的授权信息时抛出
+     */
     @Override
     public AbstractAuthenticationToken convert(Jwt jwt) {
 
