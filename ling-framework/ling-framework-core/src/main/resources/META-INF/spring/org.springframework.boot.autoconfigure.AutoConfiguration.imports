@@ -1,1 +1,3 @@
 com.ling.framework.core.config.RedisTemplateConfiguration
+com.ling.framework.core.exception.GlobalExceptionHandler
+com.ling.framework.core.config.JacksonConfiguration
