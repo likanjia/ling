@@ -18,7 +18,11 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
-
+        <dependency>
+            <groupId>com.ling</groupId>
+            <artifactId>ling-framework-feign</artifactId>
+            <version>0.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>
